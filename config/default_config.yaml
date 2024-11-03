@@ -1,0 +1,48 @@
+# Reddit API Configuration
+reddit:
+  client_id: ""  # Optional: Can be set via REDDIT_CLIENT_ID environment variable
+  client_secret: ""  # Optional: Can be set via REDDIT_CLIENT_SECRET environment variable
+  user_agent: "tmk_finder"
+
+# Subreddits to scrape
+subreddits:
+  health:
+    - "ChronicPain"
+    # - "Fibromyalgia"
+    # - "chronicillness"
+  money:
+    - "clinical_trials"
+    # - "passive_income"
+
+# Scraping settings
+scraping:
+  post_limit: 2
+  comment_depth: 1
+
+# Ranking settings
+ranking:
+  top_n: 10
+  money_motivated_weights:
+    clinical_trial_interest: 0.3
+    money_making_interest: 0.3
+    num_comments: 0.1
+    conversation_depth: 0.1
+    parent_interactions: 0.2
+  treatment_seeking_weights:
+    clinical_trial_interest: 0.2
+    treatment_sentiment: -0.3
+    illness_types: 0.2
+    conversation_depth: 0.15
+    parent_interactions: 0.15
+
+# Directory settings
+directories:
+  data: "data"
+  raw_data: "raw_data"
+  processed_data: "processed_data"
+
+# OpenAI settings
+openai:
+  api_key: ""  # Optional: Can be set via OPENAI_API_KEY environment variable
+  model: "gpt-4o-mini"
+  temperature: 0.1
